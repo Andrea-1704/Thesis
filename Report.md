@@ -22,6 +22,7 @@ questo lr è troppo basso e la convergenza è davvero molto lenta. Nonostante si
 
 Proviamo allora con questa configurazione:
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=0.0001)
+ottenendo un risultato migliore pari a MAE=3.13
 
 Inoltre fin'ora la funzione di aggregazione è sempre stata la somma.
 
