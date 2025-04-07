@@ -20,6 +20,9 @@ Forse dovremmo provare ad abbassare ulteriormente il lr, proviamo per esempio:
 optimizer = torch.optim.Adam(model.parameters(), lr=0.0005)
 questo lr è troppo basso e la convergenza è davvero molto lenta. Nonostante sia molto lenta scende comunque molto molto bene(non abbiamo sali e scendi) MAE=3.14!.
 
+Proviamo allora con questa configurazione:
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=0.0001)
+
 Inoltre fin'ora la funzione di aggregazione è sempre stata la somma.
 
 Proviamo adesso ad usare 3 livelli di GNN e aumentare questo lr
