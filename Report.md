@@ -18,7 +18,7 @@ ottengo un MAE=3.61 (val). Nota che con il primo optimizer indicato invece otten
 
 Forse dovremmo provare ad abbassare ulteriormente il lr, proviamo per esempio:
 optimizer = torch.optim.Adam(model.parameters(), lr=0.0005)
-questo lr è troppo basso e la convergenza è davvero molto lenta. Nonostante sia molto lenta scende comunque molto molto bene(non abbiamo sali e scendi)
+questo lr è troppo basso e la convergenza è davvero molto lenta. Nonostante sia molto lenta scende comunque molto molto bene(non abbiamo sali e scendi) MAE=3.14!.
 
 Inoltre fin'ora la funzione di aggregazione è sempre stata la somma.
 
