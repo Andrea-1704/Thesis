@@ -11,6 +11,7 @@ Per tutti gli esperimenti iniziali (quelli che mi portano a 3.10) ho usato solo 
 
 Per tutti questi esperimenti ho sempre usato i seguenti parametri di SGD:
 optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
+Inoltre fin'ora la funzione di aggregazione è sempre stata la somma.
 
 Proviamo adesso ad usare 3 livelli di GNN e aumentare questo lr
 
