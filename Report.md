@@ -11,6 +11,10 @@ Per tutti gli esperimenti iniziali (quelli che mi portano a 3.10) ho usato solo 
 
 Per tutti questi esperimenti ho sempre usato i seguenti parametri di SGD:
 optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
+
+Usando invece:
+optimizer = torch.optim.Adam(model.parameters(), lr=0.01, weight_decay=0.001)
+ottengo un MAE=3.61 (val)
 Inoltre fin'ora la funzione di aggregazione è sempre stata la somma.
 
 Proviamo adesso ad usare 3 livelli di GNN e aumentare questo lr
