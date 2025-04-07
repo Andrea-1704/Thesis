@@ -28,6 +28,27 @@ Inoltre fin'ora la funzione di aggregazione è sempre stata la somma.
 
 Proviamo adesso ad usare 3 livelli di GNN e aumentare questo lr
 
+At the end I decided to use cross validation with the following hyper parameters in a grid search approach:
+
+~~~python
+for lr in [0.01, 0.001, 0.0001, 0.00001]:
+    for batch_size in [64, 256, 512]:
+        for num_layers in [1, 2, 3]:
+            for weight_decay in [0.0001, 0.001, 0.01]:
+                model = Model(
+                    data=data,
+                    col_stats_dict=col_stats_dict,
+                    num_layers=num_layers,
+                    channels=128,
+                    out_channels=1,
+                    aggr="sum",
+                    norm="batch_norm",
+                ).to(device)
+                print(f"Training with lr={lr}, batch_size={batch_size}, num_layers={num_layers}, weight_decay={weight_decay}")
+                optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
+                training_function(model, optimizer, epochs=30) # Set epochs to a smaller number for testing
+~~~
+
 # train_model_baseline_f1
 
 # train_GAT
