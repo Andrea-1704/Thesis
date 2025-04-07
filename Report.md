@@ -14,7 +14,11 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
 
 Usando invece:
 optimizer = torch.optim.Adam(model.parameters(), lr=0.01, weight_decay=0.001)
-ottengo un MAE=3.61 (val)
+ottengo un MAE=3.61 (val). Nota che con il primo optimizer indicato invece ottenevamo 3.15!
+
+Forse dovremmo provare ad abbassare ulteriormente il lr, proviamo per esempio:
+optimizer = torch.optim.Adam(model.parameters(), lr=0.0005)
+
 Inoltre fin'ora la funzione di aggregazione è sempre stata la somma.
 
 Proviamo adesso ad usare 3 livelli di GNN e aumentare questo lr
