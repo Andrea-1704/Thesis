@@ -1,7 +1,9 @@
 # What is this about?
+
 We are going to add here each of the most importnat attempts we have done so far, in order to be sure to never miss out any of them and do it again!
 
 # RandomForest_FE_baseline
+
 Contains a trivial implementation of the position prediction for the f1 dataset provided by relbench.
 
 Results:
@@ -30,7 +32,7 @@ Proviamo adesso ad usare 3 livelli di GNN e aumentare questo lr
 
 At the end I decided to use cross validation with the following hyper parameters in a grid search approach:
 
-~~~python
+```python
 for lr in [0.01, 0.001, 0.0001, 0.00001]:
     for batch_size in [64, 256, 512]:
         for num_layers in [1, 2, 3]:
@@ -47,8 +49,8 @@ for lr in [0.01, 0.001, 0.0001, 0.00001]:
                 print(f"Training with lr={lr}, batch_size={batch_size}, num_layers={num_layers}, weight_decay={weight_decay}")
                 optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
                 training_function(model, optimizer, epochs=30) # Set epochs to a smaller number for testing
-~~~
-
+```
+Una cosa che manca da provare è vedere se usare differenti funzioni di aggregazione cambia il risultato. 
 # train_model_baseline_f1
 
 # train_GAT
