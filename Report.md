@@ -50,7 +50,7 @@ for lr in [0.01, 0.001, 0.0001, 0.00001]:
                 optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
                 training_function(model, optimizer, epochs=30) # Set epochs to a smaller number for testing
 ```
-Una cosa che manca da provare è vedere se usare differenti funzioni di aggregazione cambia il risultato. 
+Una cosa che manca da provare è vedere se usare differenti funzioni di aggregazione cambia il risultato. Per qualche motivo a me non noto la funzione di aggregazione media resituisce dei risultati pessimi: Best Val metrics: {'r2': -6.141562618877567, 'mae': 11.498565345146035, 'rmse': 12.389304125857201}.
 # train_model_baseline_f1
 
 # train_GAT
