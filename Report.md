@@ -51,6 +51,24 @@ for lr in [0.01, 0.001, 0.0001, 0.00001]:
                 training_function(model, optimizer, epochs=30) # Set epochs to a smaller number for testing
 ```
 Una cosa che manca da provare è vedere se usare differenti funzioni di aggregazione cambia il risultato. Per qualche motivo a me non noto la funzione di aggregazione media resituisce dei risultati pessimi: Best Val metrics: {'r2': -6.141562618877567, 'mae': 11.498565345146035, 'rmse': 12.389304125857201}.
+
+I migliori parametri trovati fin'oro dopo il processo di cross validation sembrano essere questi:
+
+```python
+model = Model(
+                    data=data,
+                    col_stats_dict=col_stats_dict,
+                    num_layers=2,
+                    channels=128,
+                    out_channels=1,
+                    aggr="mean",
+                    norm="batch_norm",
+                ).to(device)
+
+optimizer = torch.optim.Adam(model.parameters(), lr=0.01, weight_decay=0.001)
+```
+Che ci portano ad un mae di circa 2.88.
+
 # train_model_baseline_f1
 
 # train_GAT
