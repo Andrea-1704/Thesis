@@ -7,6 +7,13 @@ We are going to add here each of the most importnat attempts we have done so far
 Contains a trivial implementation of the position prediction for the f1 dataset provided by relbench.
 
 Results:
+
+# train_model_baseline_f1
+
+This file contains the same implementation they did in relbench using the class GraphSAGE (which is not the gnn architecture graphSAGe, but a new architecture invented by them for doing advanced mini batching, see the paper "GraphSAGE (minibatch Relbench)" in this repo for more informations).
+
+I changed some ascects of their implementation such as the embedder, but the important things remained the same (they implemented).
+
 Qui abbiamo un piccolo problema perché noto che dopo un po' di epoche il training mae rimane costante a crica 3.5 e validation mae a 3.10.
 
 Per tutti gli esperimenti iniziali (quelli che mi portano a 3.10) ho usato solo due layers, quindi pensavo che il problema potesse essere quello. Dunque ho provato ad incrementare il numero di livelli a 5 ma peggioro il validation mae (3.17). [tutto considerando 100 epoche di training che probabilmente sono anche troppe, successivamente ne useremo **30** di epoche].
@@ -50,6 +57,7 @@ for lr in [0.01, 0.001, 0.0001, 0.00001]:
                 optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
                 training_function(model, optimizer, epochs=30) # Set epochs to a smaller number for testing
 ```
+
 Una cosa che manca da provare è vedere se usare differenti funzioni di aggregazione cambia il risultato. Per qualche motivo a me non noto la funzione di aggregazione media resituisce dei risultati pessimi: Best Val metrics: {'r2': -6.141562618877567, 'mae': 11.498565345146035, 'rmse': 12.389304125857201}.
 
 I migliori parametri trovati fin'oro dopo il processo di cross validation sembrano essere questi:
@@ -67,11 +75,17 @@ model = Model(
 
 optimizer = torch.optim.Adam(model.parameters(), lr=0.01, weight_decay=0.001)
 ```
+
 Che ci portano ad un mae di circa 2.88.
 
-# train_model_baseline_f1
+#### Provare a mettere uno scheduler
+
 
 # train_GAT
+
+Questa implementazione parte dalla GNN baseline (Baseline_model.ipynb) ma utilizza una graph attention transformer invece della graphSAGE.
+
+Cosa strana è che ancora non si riesce a migliorare le performance della baseline.
 
 # Graphormer
 
