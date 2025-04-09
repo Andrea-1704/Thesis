@@ -80,12 +80,34 @@ Che ci portano ad un mae di circa 2.88.
 
 #### Provare a mettere uno scheduler
 
-
 # train_GAT
 
-Questa implementazione parte dalla GNN baseline (Baseline_model.ipynb) ma utilizza una graph attention transformer invece della graphSAGE.
+Questa implementazione parte dalla GNN baseline (Baseline_model.ipynb) ma utilizza una graph attention network invece della graphSAGE.
 
 Cosa strana è che ancora non si riesce a migliorare le performance della baseline.
+
+Anche per questo modello abbiamo eseguito un processo di cross validation:
+
+```python
+for lr in [0.01, 0.001, 0.0001, 0.00001]:#0.001
+    #for batch_size in [64, 256, 512]:
+        for num_layers in [1, 2, 3]:#1
+            #for weight_decay in [0.0001, 0.001, 0.01]:
+                model = Model(
+                    data=data,
+                    col_stats_dict=col_stats_dict,
+                    num_layers=num_layers,
+                    channels=128,
+                    out_channels=1,
+                    aggr="sum",
+                    norm="batch_norm",
+                ).to(device)
+                print(f"Training with lr={lr}, num_layers={num_layers}")
+                optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=0.001)
+                training_function(model, optimizer, epochs=10) # Set epochs to a smaller number for testing
+```
+
+Dobbiamo ancora testare per gli ultimi due lr (0.0001, 0.00001) ma tra i primi due la combinazione di migliori iper parametri risulta essere ***lr=0.001*** e ***un solo layer***.
 
 # Graphormer
 
