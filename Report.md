@@ -121,6 +121,10 @@ Nota infatti che il nostro modello è un modello che segue l'implementazione HAN
 2. Nel caso delle **GAT** (Graph Attention Networks), l'uso di **multiple heads di attenzione** può essere molto utile in modelli con un singolo livello, ma quando aumenti il numero di livelli (num_layers=2), **l'aggregazione delle heads** potrebbe non essere più tanto efficace
 3. Potrebbe esserci anche un errore nella configurazione dell'addestramento (ad esempio, il learning rate potrebbe essere troppo elevato per il modello con 2 livelli). Se il modello con 2 livelli sta facendo  **gradienti troppo grandi o troppo piccoli** , potrebbe non convergere correttamente.Potrebbe esserci anche un errore nella configurazione dell'addestramento (ad esempio, il learning rate potrebbe essere troppo elevato per il modello con 2 livelli). Se il modello con 2 livelli sta facendo  **gradienti troppo grandi o troppo piccoli** , potrebbe non convergere correttamente.
 
+### Baseline vs GAT
+
+La GAT sembra funzionare leggermente meglio raggiungendo MAE=2.83, rispetto a 2.92 della baseline.
+
 # Graphormer
 
 Results:
