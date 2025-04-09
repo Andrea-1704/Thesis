@@ -125,7 +125,9 @@ Nota infatti che il nostro modello è un modello che segue l'implementazione HAN
 
 La GAT sembra funzionare leggermente meglio raggiungendo MAE=2.83, rispetto a 2.92 della baseline.
 
-# Graphormer
+# Graphormer basic
+
+Dopo 100 epoche si raggiunge circa 3.13 di MAE.
 
 Results:
 
