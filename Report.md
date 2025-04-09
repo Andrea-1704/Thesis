@@ -69,7 +69,7 @@ model = Model(
                     num_layers=2,
                     channels=128,
                     out_channels=1,
-                    aggr="mean",
+                    aggr="sum",
                     norm="batch_norm",
                 ).to(device)
 
@@ -114,6 +114,12 @@ Dobbiamo ancora testare per gli ultimi due lr (0.0001, 0.00001) ma tra i primi d
 Per semplicità abbiamo fissato il valore di wd a quello precedentemente trovato.
 
 Interessante notare che nonostante il paper che ha presentato le GAT (Graph Attention Network) usassero due livelli, la rete sembra funzionare molto meglio con un solo livello (questo risultat non solo è mostrato dalla cross validation, ma ho anche provato a fare un esperimento su 200 epoche in cui nel modello con un livello si arrivava ad una val mae di circa 2.79, mentre con due livelli a circa 3.65). Si potrebbe obiettare che il paper GAT trattava grafi omogenei.
+
+Nota infatti che il nostro modello è un modello che segue l'implementazione HAN (Heterogeneous Graph Attention Networ) ovvero una GAT su un grafo eterogeneo. Possibili motivi per cui due livelli sono peggiori rispetto ad uno potrebbero essere:
+
+1. **Più livelli di rete** significa  **più parametri** , e se il tuo modello ha molti parametri rispetto alla quantità di dati o alla complessità del problema, potrebbe iniziare a "memorizzare" piuttosto che generalizzare. Questo porta a un **overfitting** dove il modello si adatta troppo ai dati di addestramento e non generalizza bene su dati di validazione/test.
+2. Nel caso delle **GAT** (Graph Attention Networks), l'uso di **multiple heads di attenzione** può essere molto utile in modelli con un singolo livello, ma quando aumenti il numero di livelli (num_layers=2), **l'aggregazione delle heads** potrebbe non essere più tanto efficace
+3. Potrebbe esserci anche un errore nella configurazione dell'addestramento (ad esempio, il learning rate potrebbe essere troppo elevato per il modello con 2 livelli). Se il modello con 2 livelli sta facendo  **gradienti troppo grandi o troppo piccoli** , potrebbe non convergere correttamente.Potrebbe esserci anche un errore nella configurazione dell'addestramento (ad esempio, il learning rate potrebbe essere troppo elevato per il modello con 2 livelli). Se il modello con 2 livelli sta facendo  **gradienti troppo grandi o troppo piccoli** , potrebbe non convergere correttamente.
 
 # Graphormer
 
