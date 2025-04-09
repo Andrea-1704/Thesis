@@ -86,6 +86,8 @@ Questa implementazione parte dalla GNN baseline (Baseline_model.ipynb) ma utiliz
 
 Cosa strana è che ancora non si riesce a migliorare le performance della baseline.
 
+### Cross validation
+
 Anche per questo modello abbiamo eseguito un processo di cross validation:
 
 ```python
@@ -108,6 +110,8 @@ for lr in [0.01, 0.001, 0.0001, 0.00001]:#0.001
 ```
 
 Dobbiamo ancora testare per gli ultimi due lr (0.0001, 0.00001) ma tra i primi due la combinazione di migliori iper parametri risulta essere ***lr=0.001*** e ***un solo layer***.
+
+Per semplicità abbiamo fissato il valore di wd a quello precedentemente trovato.
 
 # Graphormer
 
