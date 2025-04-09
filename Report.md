@@ -113,7 +113,7 @@ Dobbiamo ancora testare per gli ultimi due lr (0.0001, 0.00001) ma tra i primi d
 
 Per semplicità abbiamo fissato il valore di wd a quello precedentemente trovato.
 
-Interessante notare che nonostante il paper che ha presentato le GAT (Graph Attention Network) usassero due livelli, la rete sembra funzionare molto meglio con un solo livello (questo risultat non solo è mostrato dalla cross validation, ma ho anche provato a fare un esperimento su 200 epoche in cui nel modello con un livello si arrivava ad una val mae di circa 2.77, mentre con due livelli a circa 3.65). Si potrebbe obiettare che il paper GAT trattava grafi omogenei.
+Interessante notare che nonostante il paper che ha presentato le GAT (Graph Attention Network) usassero due livelli, la rete sembra funzionare molto meglio con un solo livello (questo risultat non solo è mostrato dalla cross validation, ma ho anche provato a fare un esperimento su 200 epoche in cui nel modello con un livello si arrivava ad una val mae di circa 2.79, mentre con due livelli a circa 3.65). Si potrebbe obiettare che il paper GAT trattava grafi omogenei.
 
 # Graphormer
 
