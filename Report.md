@@ -33,7 +33,7 @@ Proviamo allora con questa configurazione:
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=0.0001)
 ottenendo un risultato migliore pari a MAE=3.13
 
-Inoltre fin'ora la funzione di aggregazione è sempre stata la somma.
+Inoltre fin'ora la funzione di aggregazione è sempre stata la **somma**.
 
 Proviamo adesso ad usare 3 livelli di GNN e aumentare questo lr
 
@@ -58,7 +58,7 @@ for lr in [0.01, 0.001, 0.0001, 0.00001]:
                 training_function(model, optimizer, epochs=30) # Set epochs to a smaller number for testing
 ```
 
-Una cosa che manca da provare è vedere se usare differenti funzioni di aggregazione cambia il risultato. Per qualche motivo a me non noto la funzione di aggregazione media resituisce dei risultati pessimi: Best Val metrics: {'r2': -6.141562618877567, 'mae': 11.498565345146035, 'rmse': 12.389304125857201}.
+Una cosa che manca da provare è vedere se usare differenti funzioni di aggregazione cambia il risultato. **Per qualche motivo a me non noto la funzione di aggregazione media resituisce dei risultati pessimi**: Best Val metrics: {'r2': -6.141562618877567, 'mae': 11.498565345146035, 'rmse': 12.389304125857201}.
 
 I migliori parametri trovati fin'oro dopo il processo di cross validation sembrano essere questi:
 
@@ -69,7 +69,7 @@ model = Model(
                     num_layers=2,
                     channels=128,
                     out_channels=1,
-                    aggr="sum",
+                    aggr="mean",
                     norm="batch_norm",
                 ).to(device)
 
