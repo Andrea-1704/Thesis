@@ -10,7 +10,7 @@ Results:
 
 # train_model_baseline_f1
 
-This file contains the same implementation they did in relbench using the class GraphSAGE (which is not the gnn architecture graphSAGe, but a new architecture invented by them for doing advanced mini batching, see the paper "GraphSAGE (minibatch Relbench)" in this repo for more informations).
+This file contains the same implementation they did in relbench using the class GraphSAGE see the paper "GraphSAGE (minibatch Relbench)" in this repo for more informations.
 
 I changed some ascects of their implementation such as the embedder, but the important things remained the same (they implemented).
 
