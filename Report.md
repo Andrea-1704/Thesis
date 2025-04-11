@@ -129,6 +129,10 @@ La GAT sembra funzionare leggermente meglio raggiungendo MAE=2.83, rispetto a 2.
 
 Dopo 100 epoche si raggiunge circa 3.13 di MAE.
 
+Abbiamo proceduto ad implementare la versione finale di graphormer in maniera incrementale, ovvero dapprima abbiamo introdotto un semplice layer di self attention seguendo lo standard definito dal paper "Attention is all you need" ma evitando il positional encoding e aggiungendo invece un edge encoding.
+
+Successivamente abbiamo costruito un secondo modello che aggiunge al livello precedente un concetto di node centrality calcolato tramite degree centrality.
+
 Results:
 
 Attempts:
