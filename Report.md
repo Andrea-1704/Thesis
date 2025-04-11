@@ -1,3 +1,16 @@
+Best Val metrics: {'r2': 0.3251897151348895, 'mae': 3.0208979767166775, 'rmse': np.float64(3.808387545128338)}
+Best test metrics: {'r2': 0.012922247923104924, 'mae': 4.250098149797372, 'rmse': np.float64(5.176611079479932)}
+
+```
+
+```
+
+Best Val metrics: {'r2': 0.3251897151348895, 'mae': 3.0208979767166775, 'rmse': np.float64(3.808387545128338)}
+Best test metrics: {'r2': 0.012922247923104924, 'mae': 4.250098149797372, 'rmse': np.float64(5.176611079479932)}
+
+Best Val metrics: {'r2': 0.3251897151348895, 'mae': 3.0208979767166775, 'rmse': np.float64(3.808387545128338)}
+Best test metrics: {'r2': 0.012922247923104924, 'mae': 4.250098149797372, 'rmse': np.float64(5.176611079479932)}
+
 # What is this about?
 
 We are going to add here each of the most importnat attempts we have done so far, in order to be sure to never miss out any of them and do it again!
@@ -136,19 +149,29 @@ Successivamente abbiamo costruito un secondo modello che aggiunge al livello pre
 Sembra che aggiungere il node centrality comporti una leggera riduzione del MAE sia nel set di validation che in quello di test, passando da:
 
 ```python
-Best Val metrics: {'r2': 0.28940953601942565, 'mae': 3.146641927252791, 'rmse': np.float64(3.908048791030459)}
-Best test metrics: {'r2': -0.05815771051539431, 'mae': 4.348861217833401, 'rmse': np.float64(5.35975645844482)}
+Best Val metrics: {'r2': 0.32290520643661624, 'mae': 3.0237126924072655, 'rmse': np.float64(3.8148285727717464)}
+Best test metrics: {'r2': 0.0675817477108216, 'mae': 4.065723488372669, 'rmse': np.float64(5.031242368902457)}
+```
+
+Secondo esperimento:
+
+```python
+Best Val metrics: {'r2': 0.3251897151348895, 'mae': 3.0208979767166775, 'rmse': np.float64(3.808387545128338)}
+Best test metrics: {'r2': 0.012922247923104924, 'mae': 4.250098149797372, 'rmse': np.float64(5.176611079479932)}
 ```
 
 Nel caso di node encoding tramite degree centrality, a:
 
 ```python
-Best Val metrics: {'r2': 0.398378516266494, 'mae': 2.7465349130496715, 'rmse': np.float64(3.5959360348752316)}
-Best test metrics: {'r2': 0.06435967885118254, 'mae': 4.0847046658239865, 'rmse': np.float64(5.039927864256996)}
+Best Val metrics: {'r2': 0.3852869230994814, 'mae': 2.757049588449971, 'rmse': np.float64(3.634850185741035)}
+Best test metrics: {'r2': -0.001497579711262187, 'mae': 4.226886181496738, 'rmse': np.float64(5.214285515336282)}
+```
+
+Secondo esperimento:
+
+```python
+Best Val metrics: {'r2': 0.3822518993244465, 'mae': 2.761465978909112, 'rmse': np.float64(3.6438123127543136)}
+Best test metrics: {'r2': -0.08744494411399595, 'mae': 4.415857593762247, 'rmse': np.float64(5.433422727636282)}
 ```
 
 Nel caso in cui non si usi il node encoding. In entrambi i due casi il modello è stato trainato su un massimo di 200 round e gli esperimenti sono stati eseguiti più volte per essere abbastanza sicuri che non fosse casuale.
-
-Results:
-
-Attempts:
