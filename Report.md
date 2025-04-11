@@ -133,6 +133,22 @@ Abbiamo proceduto ad implementare la versione finale di graphormer in maniera in
 
 Successivamente abbiamo costruito un secondo modello che aggiunge al livello precedente un concetto di node centrality calcolato tramite degree centrality.
 
+Sembra che aggiungere il node centrality comporti una leggera riduzione del MAE sia nel set di validation che in quello di test, passando da:
+
+```python
+Best Val metrics: {'r2': 0.28940953601942565, 'mae': 3.146641927252791, 'rmse': np.float64(3.908048791030459)}
+Best test metrics: {'r2': -0.05815771051539431, 'mae': 4.348861217833401, 'rmse': np.float64(5.35975645844482)}
+```
+
+Nel caso di node encoding tramite degree centrality, a:
+
+```python
+Best Val metrics: {'r2': 0.398378516266494, 'mae': 2.7465349130496715, 'rmse': np.float64(3.5959360348752316)}
+Best test metrics: {'r2': 0.06435967885118254, 'mae': 4.0847046658239865, 'rmse': np.float64(5.039927864256996)}
+```
+
+Nel caso in cui non si usi il node encoding. In entrambi i due casi il modello è stato trainato su un massimo di 200 round e gli esperimenti sono stati eseguiti più volte per essere abbastanza sicuri che non fosse casuale.
+
 Results:
 
 Attempts:
